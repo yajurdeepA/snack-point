@@ -1,0 +1,56 @@
+
+    <div id="demo" class="carousel slide" data-ride="carousel">
+
+      <!-- Indicators -->
+      <ul class="carousel-indicators">
+        <li data-target="#demo" data-slide-to="0" class="active"></li>
+        <li data-target="#demo" data-slide-to="1"></li>
+        <li data-target="#demo" data-slide-to="2"></li>
+<li data-target="#demo" data-slide-to="3"></li>
+      </ul>
+
+      <!-- The slideshow -->
+      <div class="carousel-inner">
+<div class="carousel-item active">
+<img src="../assets/images/corosel/chicken-biryani.jpg" class= "img-fluid" alt="Chicken Biryani">
+</div>
+<div class="carousel-item">
+<img src="../assets/images/corosel/mutton.webp" class= "img-fluid" alt="Mutton">
+</div>
+<div class="carousel-item">
+<img src="../assets/images/corosel/Kolhapuri-mutton-curry.jpg" class= "img-fluid" alt="Mutton">
+</div>
+<div class="carousel-item">
+<img src="../assets/images/corosel/kadai-chicken.jpg" class= "img-fluid" alt="Chicken">
+</div>
+      </div>
+
+      <!-- Left and right controls -->
+      <a class="carousel-control-prev" href="#demo" data-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </a>
+      <a class="carousel-control-next" href="#demo" data-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </a>
+
+    </div>
+    <div class ="row" style="margin-top:30px">
+        
+            <h3><span class="badge badge-success">Order Now</span></h3>
+           
+    </div>
+    <div class = "row" >
+                 
+                    
+
+        <div class="d-inline-flex p-3 bg-secondary text-white">
+            <div *ngFor = "let category of categories" class="p-2 bg-info">
+                <a [routerLink]="'order'" [queryParams]="{category:category.name}"><span><img src="{{category.image}}" class="img-thumbnail img-fluid" alt="Cinque Terre"><br>
+                    <span class="text-center font-weight-bold">{{category.name}}</span></span>
+                </a>
+            </div>
+            
+           
+            
+          </div>
+    </div>

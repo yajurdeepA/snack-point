@@ -1,0 +1,34 @@
+<div class="row">
+    <div class="col-md-8">
+        <div *ngIf="nodata">
+            There is no data to display.
+          </div>  
+        <div class="row">
+            <div *ngFor = "let product of products" class="col-md-4">
+                <div class="card">
+                    <img src="{{product.image}}"  class="card-img-top img-fluid" alt="Biryani">
+                        <div class="card-body">
+                        <h5 class="card-title" id = "title">{{product.name}}</h5>
+                        <p class = "price" data-price="14.95">{{product.price}}</p>
+                        <p class="card-text">{{product.description}}</p>
+                        <button (click) = "addtocart(product.id)" class="btn btn-primary"  >Add to Cart</button>
+                        </div>
+                </div>
+            </div>
+            
+            
+          </div>
+    </div>
+    <div class="col-md-2">
+        <h3><span class="badge badge-success">Categories</span></h3>
+        <div class="d-flex flex-column">
+            <div *ngFor = "let category of categories" class="p-2 bg-info">
+            <a [routerLink]="'../order'" [queryParams]="{category:category.name}"><span><img src="{{category.image}}" class="img-thumbnail img-fluid" alt="Cinque Terre"><br>
+                <span class="text-center font-weight-bold">{{category.name}}</span></span>
+            </a>
+        </div>
+              
+              
+            </div>
+    </div>
+</div>
