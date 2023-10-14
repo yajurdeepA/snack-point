@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { DataService } from 'src/app/data.service';
 import {ActivatedRoute} from '@angular/router';
 import { OnInit } from '@angular/core';
+import { CartService } from 'src/app/cart.service';
 
 @Component({
   selector: 'app-order',
@@ -14,7 +15,7 @@ export class OrderComponent implements OnInit{
   categories!:any[];
   nodata:boolean =false;
   
-  constructor(private ds:DataService,private route:ActivatedRoute){}
+  constructor(private ds:DataService,private cart:CartService,private route:ActivatedRoute){}
   ngOnInit(): void {
     this.route.queryParamMap.subscribe({
       next: data => {
@@ -39,12 +40,8 @@ export class OrderComponent implements OnInit{
     
   }
   addtocart(id:number){
-    
-    this.ds.getProduct(id).subscribe({
-      next: data =>{
-        console.log(data);
-      }
-    })  
+    this.cart.addToCart(id);
+     
   }
 
   
